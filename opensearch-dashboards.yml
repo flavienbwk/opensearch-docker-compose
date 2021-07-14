@@ -1,0 +1,15 @@
+server.name: os_dashboards
+server.host: "0.0.0.0"
+
+opensearch.hosts: ["https://os01:9200","https://os02:9200","https://os03:9200"]
+opensearch.username: "os_dashboards"
+opensearch.password: "os_dashboards"
+
+# Encrypt traffic between the browser and OpenSearch-Dashboards
+server.ssl.enabled: true
+server.ssl.certificate: "/usr/share/opensearch-dashboards/config/certificates/os-dashboards/os-dashboards.pem"
+server.ssl.key: "/usr/share/opensearch-dashboards/config/certificates/os-dashboards/os-dashboards.key"
+
+# Encrypt traffic between OpenSearch-Dashboards and Opensearch
+opensearch.ssl.certificateAuthorities: ["/usr/share/opensearch-dashboards/config/certificates/ca/ca.pem"]
+opensearch.ssl.verificationMode: full
