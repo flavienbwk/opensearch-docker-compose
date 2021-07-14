@@ -41,7 +41,7 @@ docker-compose exec os01 bash -c "chmod +x plugins/opensearch-security/tools/sec
 
 Access OpenSearch Dashboards through [https://localhost:5601](https://localhost:5601)
 
-> Default username is `os_dashboards` and password is `os_dashboards`
+> Default username is `kibanaserver` and password is `kibanaserver`
 
 ## Why OpenSearch
 
