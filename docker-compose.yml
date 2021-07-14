@@ -13,6 +13,7 @@ services:
       plugins.security.ssl.http.pemkey_filepath: certificates/os01/os01.key
       plugins.security.ssl.http.pemcert_filepath: certificates/os01/os01.pem
       DISABLE_INSTALL_DEMO_CONFIG: "true"
+      JAVA_HOME: /usr/share/opensearch/jdk
       bootstrap.memory_lock: "true" # along with the memlock settings below, disables swapping
       network.host: "0.0.0.0"
     ulimits: 
@@ -38,6 +39,7 @@ services:
       plugins.security.ssl.http.pemkey_filepath: certificates/os02/os02.key
       plugins.security.ssl.http.pemcert_filepath: certificates/os02/os02.pem
       DISABLE_INSTALL_DEMO_CONFIG: "true"
+      JAVA_HOME: /usr/share/opensearch/jdk
       bootstrap.memory_lock: "true" # along with the memlock settings below, disables swapping
       network.host: "0.0.0.0"
     ulimits: 
@@ -60,6 +62,7 @@ services:
       plugins.security.ssl.http.pemkey_filepath: certificates/os03/os03.key
       plugins.security.ssl.http.pemcert_filepath: certificates/os03/os03.pem
       DISABLE_INSTALL_DEMO_CONFIG: "true"
+      JAVA_HOME: /usr/share/opensearch/jdk
       bootstrap.memory_lock: "true" # along with the memlock settings below, disables swapping
       network.host: "0.0.0.0"
     ulimits: 
