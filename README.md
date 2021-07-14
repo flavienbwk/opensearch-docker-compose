@@ -45,6 +45,7 @@ Access OpenSearch Dashboards through [https://localhost:5601](https://localhost:
 Default username is `kibanaserver` and password is `kibanaserver`
 
 > Take a look at [OpenSearch's internal users documentation](https://opensearch.org/docs/security-plugin/configuration/yaml/) to add, remove or update a user.
+
 ## Why OpenSearch
 
 - Fully open source (including plugins)
