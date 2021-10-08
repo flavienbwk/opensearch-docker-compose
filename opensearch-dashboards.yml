@@ -1,7 +1,6 @@
 server.name: os_dashboards
 server.host: "0.0.0.0"
 
-opensearch.hosts: ["https://os01:9200","https://os02:9200","https://os03:9200"]
 opensearch.username: "kibanaserver"
 opensearch.password: "kibanaserver"
 

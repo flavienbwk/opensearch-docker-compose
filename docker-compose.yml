@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 
 services:
 
@@ -8,6 +8,8 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os01
+      discovery.seed_hosts: os01,os02,os03
+      cluster.initial_master_nodes: os01,os02,os03
       plugins.security.ssl.transport.pemkey_filepath: certificates/os01/os01.key # relative path
       plugins.security.ssl.transport.pemcert_filepath: certificates/os01/os01.pem
       plugins.security.ssl.http.pemkey_filepath: certificates/os01/os01.key
@@ -34,6 +36,8 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os02
+      discovery.seed_hosts: os01,os02,os03
+      cluster.initial_master_nodes: os01,os02,os03
       plugins.security.ssl.transport.pemkey_filepath: certificates/os02/os02.key # relative path
       plugins.security.ssl.transport.pemcert_filepath: certificates/os02/os02.pem
       plugins.security.ssl.http.pemkey_filepath: certificates/os02/os02.key
@@ -57,6 +61,8 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os03
+      discovery.seed_hosts: os01,os02,os03
+      cluster.initial_master_nodes: os01,os02,os03
       plugins.security.ssl.transport.pemkey_filepath: certificates/os03/os03.key # relative path
       plugins.security.ssl.transport.pemcert_filepath: certificates/os03/os03.pem
       plugins.security.ssl.http.pemkey_filepath: certificates/os03/os03.key
