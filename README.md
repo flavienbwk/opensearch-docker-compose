@@ -50,6 +50,10 @@ Default username is `kibanaserver` and password is `kibanaserver`
 
 Use a [hot-warm cluster architecture](https://opensearch.org/docs/latest/opensearch/cluster/#advanced-step-7-set-up-a-hot-warm-architecture) if you have data that you rarely want to update or search so you can place them on lower-cost storage nodes.
 
+<center>
+    <img alt="Hot-warm architecture schema" src="./hot-warm-architecture.jpg" />
+</center>
+
 <details>
 <summary>Hot-warm architecture cluster setup instructions...</summary>
 <br>
@@ -68,7 +72,7 @@ Now, we will generate the certificates for the cluster :
 bash generate-certs-hot-warm.sh
 ```
 
-Start the cluster :
+Adjust `Xms/Xmx` parameters and start the cluster :
 
 ```bash
 docker-compose -f docker-compose.hot-warm.yml up -d

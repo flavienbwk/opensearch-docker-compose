@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
 
@@ -38,6 +38,8 @@ services:
   #   the cluster state.
   #   Three dedicated master nodes in three different zones is the 
   #   right approach for almost all production use cases.
+  #   3 dedicated master nodes in 3 different zones is the right approach,
+  #   Here, we don't do that because we're on 1 machine only.
   #   Master node should not be exposed. Data and ingest nodes can be.
   # Needs : heavy CPU, medium memory
   os01:
@@ -172,12 +174,10 @@ services:
       - "os-data4:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
   
-  # Ingest & Data (warm) node
+  # Data (warm) node
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os05:
     restart: always
@@ -185,7 +185,7 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os05
-      node.roles: 'ingest, data'
+      node.roles: 'data'
       node.attr.temp: warm
       discovery.seed_hosts: os00,os01,os02,os03,os04,os05,os06,os07
       cluster.initial_master_nodes: os01
@@ -206,12 +206,10 @@ services:
       - "os-data5:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
   
-  # Ingest & Data (warm) node
+  # Data (warm) node
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os06:
     restart: always
@@ -219,7 +217,7 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os06
-      node.roles: 'ingest, data'
+      node.roles: 'data'
       node.attr.temp: warm
       discovery.seed_hosts: os00,os01,os02,os03,os04,os05,os06,os07
       cluster.initial_master_nodes: os01
@@ -240,12 +238,10 @@ services:
       - "os-data6:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
   
-  # Ingest & Data (warm) node
+  # Data (warm) node
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os07:
     restart: always
@@ -253,7 +249,7 @@ services:
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os07
-      node.roles: 'ingest, data'
+      node.roles: 'data'
       node.attr.temp: warm
       discovery.seed_hosts: os00,os01,os02,os03,os04,os05,os06,os07
       cluster.initial_master_nodes: os01
