@@ -178,7 +178,7 @@ services:
   #     operations (indexing, searching, aggregating) on local shards.
   #   We can mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
-  # Needs : medium CPU, heavy memory, low-speed storage
+  # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os05:
     restart: always
     image: opensearchproject/opensearch:1.1.0
@@ -212,7 +212,7 @@ services:
   #     operations (indexing, searching, aggregating) on local shards.
   #   We can mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
-  # Needs : medium CPU, heavy memory, low-speed storage
+  # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os06:
     restart: always
     image: opensearchproject/opensearch:1.1.0
@@ -246,7 +246,7 @@ services:
   #     operations (indexing, searching, aggregating) on local shards.
   #   We can mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
-  # Needs : medium CPU, heavy memory, low-speed storage
+  # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os07:
     restart: always
     image: opensearchproject/opensearch:1.1.0

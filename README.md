@@ -48,6 +48,8 @@ Default username is `kibanaserver` and password is `kibanaserver`
 
 ## Hot-warm architecture setup
 
+Use a [hot-warm cluster architecture](https://opensearch.org/docs/latest/opensearch/cluster/#advanced-step-7-set-up-a-hot-warm-architecture) if you have data that you rarely want to update or search so you can place them on lower-cost storage nodes.
+
 <details>
 <summary>Hot-warm architecture cluster setup instructions...</summary>
 <br>
