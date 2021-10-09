@@ -94,7 +94,7 @@ Default username is `kibanaserver` and password is `kibanaserver`
 
 </details>
 
-To add an index new index to the warm node :
+To add an index to a warm node :
 
 ```jsn
 PUT newindex
@@ -105,7 +105,7 @@ PUT newindex
 }
 ```
 
-You might want to use [Index State Management (ILM)](https://opensearch.org/docs/latest/im-plugin/index/) to automatically move old indices from _hot_ to _warm_.
+You might want to use [Index State Management (ILM)](https://opensearch.org/docs/latest/im-plugin/index/) to automatically move old indices from _hot_ to _warm_ nodes.
 
 ## Why OpenSearch
 
