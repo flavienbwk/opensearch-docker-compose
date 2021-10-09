@@ -78,7 +78,7 @@ services:
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
+  #   It is fine to mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
   # Needs : medium CPU, heavy memory, high-speed storage
   os02:
@@ -112,7 +112,7 @@ services:
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
+  #   It is fine to mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
   # Needs : medium CPU, heavy memory, high-speed storage
   os03:
@@ -146,7 +146,7 @@ services:
   #   Ingest : Preprocesses data before storing it in the cluster.
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
-  #   We can mix both because we're using only 1 server for this cluster.
+  #   It is fine to mix both because we're using only 1 server for this cluster.
   #   If you have several servers, use dedicated ingest nodes.
   # Needs : medium CPU, heavy memory, high-speed storage
   os04:
