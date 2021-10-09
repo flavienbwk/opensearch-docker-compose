@@ -79,7 +79,7 @@ services:
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
   #   It is fine to mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
+  #   If you ingest a lot of data, expose a dedicated ingest node.
   # Needs : medium CPU, heavy memory, high-speed storage
   os02:
     restart: always
@@ -113,7 +113,7 @@ services:
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
   #   It is fine to mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
+  #   If you ingest a lot of data, expose a dedicated ingest node.
   # Needs : medium CPU, heavy memory, high-speed storage
   os03:
     restart: always
@@ -147,7 +147,7 @@ services:
   #   Data : Stores and searches data. Performs all data-related 
   #     operations (indexing, searching, aggregating) on local shards.
   #   It is fine to mix both because we're using only 1 server for this cluster.
-  #   If you have several servers, use dedicated ingest nodes.
+  #   If you ingest a lot of data, expose a dedicated ingest node.
   # Needs : medium CPU, heavy memory, high-speed storage
   os04:
     restart: always
