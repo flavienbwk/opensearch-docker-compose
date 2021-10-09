@@ -2,7 +2,9 @@ version: '3.7'
 
 services:
 
-  # Coordinating node
+  # Coordinating node (dedicated)
+  #   Kind of load-balancer for your cluster.
+  #   Formerly "client nodes".
   #   Delegates client requests to the shards on the data nodes, 
   #   collects and aggregates the results into one final result, 
   #   and sends this result back to the client.
@@ -32,15 +34,18 @@ services:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data0:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
+    ports:
+      - 9200:9200
+      - 9600:9600 # required for Performance Analyzer
 
-  # Master-only node
+  # Master node (dedicated)
   #   Manages the overall operation of a cluster and keeps track of 
   #   the cluster state.
   #   Three dedicated master nodes in three different zones is the 
   #   right approach for almost all production use cases.
   #   3 dedicated master nodes in 3 different zones is the right approach,
   #   Here, we don't do that because we're on 1 machine only.
-  #   Master node should not be exposed. Data and ingest nodes can be.
+  #   Master node should not be exposed. Coordinating or ingest nodes can be.
   # Needs : heavy CPU, medium memory
   os01:
     restart: always
@@ -102,9 +107,6 @@ services:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data2:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
-    ports:
-      - 9200:9200
-      - 9600:9600 # required for Performance Analyzer
   
   # Ingest & Data (hot) node
   #   Ingest : Preprocesses data before storing it in the cluster.
