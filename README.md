@@ -42,7 +42,7 @@ docker-compose exec os01 bash -c "chmod +x plugins/opensearch-security/tools/sec
 
 Access OpenSearch Dashboards through [https://localhost:5601](https://localhost:5601)
 
-Default username is `kibanaserver` and password is `kibanaserver`
+Default username is `admin` and password is `admin`
 
 > Take a look at [OpenSearch's internal users documentation](https://opensearch.org/docs/security-plugin/configuration/yaml/) to add, remove or update a user.
 
@@ -88,7 +88,7 @@ docker-compose exec os01 bash -c "chmod +x plugins/opensearch-security/tools/sec
 
 Access OpenSearch Dashboards through [https://localhost:5601](https://localhost:5601)
 
-Default username is `kibanaserver` and password is `kibanaserver`
+Default username is `admin` and password is `admin`
 
 > Take a look at [OpenSearch's internal users documentation](https://opensearch.org/docs/security-plugin/configuration/yaml/) to add, remove or update a user.
 
