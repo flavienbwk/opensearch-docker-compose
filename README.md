@@ -10,6 +10,13 @@ Dockerized cluster architecture for OpenSearch with compose.
 - OpenSearch = Elasticsearch
 - OpenSearch Dashboards = Kibana
 
+## Simple run
+
+```bash
+docker-compose -f docker-compose-simple up -d
+```
+Now, use OpenSearch in http://localhost:9200/ and dashboard in http://localhost:5601/
+
 ## Cluster setup
 
 Raise your host's ulimits for ElasticSearch to handle high I/O :
