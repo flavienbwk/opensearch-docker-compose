@@ -29,6 +29,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data0:/usr/share/opensearch/data"
@@ -67,6 +72,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data1:/usr/share/opensearch/data"
@@ -102,6 +112,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data2:/usr/share/opensearch/data"
@@ -136,6 +151,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data3:/usr/share/opensearch/data"
@@ -170,6 +190,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data4:/usr/share/opensearch/data"
@@ -202,6 +227,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data5:/usr/share/opensearch/data"
@@ -234,6 +264,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data6:/usr/share/opensearch/data"
@@ -266,6 +301,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data7:/usr/share/opensearch/data"
@@ -274,14 +314,19 @@ services:
   kibana:
     restart: always
     image: opensearchproject/opensearch-dashboards:2.2.0
-    ports:
-      - 5601:5601
-    volumes:
-      - "./certs:/usr/share/opensearch-dashboards/config/certificates:ro"
-      - "./opensearch-dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     environment:
       OPENSEARCH_HOSTS: '["https://os00:9200","https://os01:9200","https://os02:9200","https://os03:9200","https://os04:9200","https://os05:9200","https://os06:9200","https://os07:9200"]' # must be a string with no spaces when specified as an environment variable
       DISABLE_INSTALL_DEMO_CONFIG: "true"
+    volumes:
+      - "./certs:/usr/share/opensearch-dashboards/config/certificates:ro"
+      - "./opensearch-dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml"
+    ports:
+      - 5601:5601
 
 volumes:
   os-data0:

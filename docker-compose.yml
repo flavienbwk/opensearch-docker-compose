@@ -4,7 +4,7 @@ services:
 
   os01:
     restart: always
-    image: opensearchproject/opensearch:2.6.0
+    image: opensearchproject/opensearch:2.9.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os01
@@ -26,13 +26,18 @@ services:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data1:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     ports:
       - 9200:9200
       - 9600:9600 # required for Performance Analyzer
   
   os02:
     restart: always
-    image: opensearchproject/opensearch:2.6.0
+    image: opensearchproject/opensearch:2.9.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os02
@@ -50,6 +55,11 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data2:/usr/share/opensearch/data"
@@ -57,7 +67,7 @@ services:
   
   os03:
     restart: always
-    image: opensearchproject/opensearch:2.6.0
+    image: opensearchproject/opensearch:2.9.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os03
@@ -75,22 +85,32 @@ services:
       memlock:
         soft: -1
         hard: -1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - "./opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data3:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
-  
+
   kibana:
     restart: always
-    image: opensearchproject/opensearch-dashboards:2.6.0
-    ports:
-      - 5601:5601
-    volumes:
-      - "./certs:/usr/share/opensearch-dashboards/config/certificates:ro"
-      - "./opensearch-dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml"
+    image: opensearchproject/opensearch-dashboards:2.9.0
     environment:
       OPENSEARCH_HOSTS: '["https://os01:9200","https://os02:9200","https://os03:9200"]' # must be a string with no spaces when specified as an environment variable
       DISABLE_INSTALL_DEMO_CONFIG: "true"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
+    volumes:
+      - "./certs:/usr/share/opensearch-dashboards/config/certificates:ro"
+      - "./opensearch-dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml"
+    ports:
+      - 5601:5601
 
 volumes:
   os-data1:
