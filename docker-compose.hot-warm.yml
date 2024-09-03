@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
 
   # Coordinating node (dedicated)
@@ -10,7 +8,7 @@ services:
   # Needs : heavy CPU, medium memory
   os00:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os00
@@ -53,7 +51,7 @@ services:
   # Needs : low CPU, low memory
   os01:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os01
@@ -92,7 +90,7 @@ services:
   # Needs : medium CPU, heavy memory, high-speed storage
   os02:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os02
@@ -131,7 +129,7 @@ services:
   # Needs : medium CPU, heavy memory, high-speed storage
   os03:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os03
@@ -170,7 +168,7 @@ services:
   # Needs : medium CPU, heavy memory, high-speed storage
   os04:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os04
@@ -207,7 +205,7 @@ services:
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os05:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os05
@@ -244,7 +242,7 @@ services:
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os06:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os06
@@ -281,7 +279,7 @@ services:
   # Needs : lower-speed CPU, heavy memory, lower-speed storage
   os07:
     restart: always
-    image: opensearchproject/opensearch:2.2.0
+    image: opensearchproject/opensearch:2.16.0
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os07
@@ -313,7 +311,7 @@ services:
   
   kibana:
     restart: always
-    image: opensearchproject/opensearch-dashboards:2.2.0
+    image: opensearchproject/opensearch-dashboards:2.16.0
     logging:
       driver: "json-file"
       options:
