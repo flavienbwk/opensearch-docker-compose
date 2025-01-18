@@ -75,7 +75,7 @@ bash generate-certs-hot-warm.sh
 Adjust `Xms/Xmx` parameters and start the cluster :
 
 ```bash
-docker compose -f docker compose.hot-warm.yml up -d
+docker compose -f docker-compose.hot-warm.yml up -d
 ```
 
 Wait about 60 seconds and run `securityadmin` to initialize the security plugin :
