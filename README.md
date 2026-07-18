@@ -1,6 +1,6 @@
 # OpenSearch - Docker - Compose
 
-![OpenSearch version](https://img.shields.io/badge/OpenSearch%20version-3.4.0-blue)
+![OpenSearch version](https://img.shields.io/badge/OpenSearch%20version-3.7.0-blue)
 
 Dockerized cluster architecture for OpenSearch with compose.
 
